@@ -1,10 +1,12 @@
 # Unifi Blueberry - Podman
 
-An addon for Unifi Blueberry that installs and manages [Podman](https://podman.io/).
+An addon for Unifi Blueberry (more info coming soon!) that installs and manages [Podman](https://podman.io/).
 
 ## Installation
 
 As Unifi Blueberry is not yet ready for prime time, the Podman addon can be installed manually.
+
+_Note: this has only been tested on a UDM Pro running 2.4 so far. Please let me know how it goes on other consoles with Unifi OS 2.4 or greater._
 
 ### Requirements
 
@@ -51,3 +53,8 @@ Yes, please open a ticket and I would be happy to publish a new release. This wi
 ### I get a warning saying "Failed to read current user namespace mappings"
 
 I don't currently know exactly what this means or how we might fix it. So far it doesn't seem to impact running containers. This issue will be investigated in the future.
+
+
+## Credits
+
+Heavily inspired by the work done in [unifi-utlities](https://github.com/unifi-utilities/unifios). Big thanks to the maintainers there for supporting customizations fo our Unifi consoles for so long!
