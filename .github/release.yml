@@ -1,0 +1,23 @@
+changelog:
+  exclude:
+    labels:
+      - no-changelog
+  categories:
+    - title: Breaking Changes 🛠
+      labels:
+        - type/breaking-change
+    - title: New Features 🎉
+      labels:
+        - type/feature
+    - title: Bug Fixes 🐞
+      labels:
+        - bug
+    - title: Documentation 📖
+      labels:
+        - type/documentation
+    - title: Chores ⚙️
+      labels:
+        - type/chore
+    - title: Other Changes
+      labels:
+        - "*"
