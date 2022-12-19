@@ -29,3 +29,6 @@ cp bin/conmon $DIR/usr/libexec/podman/
 
 # build
 dpkg-deb --build --root-owner-group $DIR
+
+mkdir out
+mv ./*.deb out/

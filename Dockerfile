@@ -72,7 +72,7 @@ RUN make
 
 ## package
 ##
-FROM debian:bullseye
+FROM debian:bullseye as package
 
 RUN apt-get update && apt-get install -y \
       gettext \
@@ -88,3 +88,9 @@ COPY --from=builder-conmon /build/conmon/bin/* bin/
 COPY --from=builder-runc /build/runc/runc bin/
 
 RUN sh package.sh
+
+## artifact for export
+##
+FROM scratch as artifact
+
+COPY --from=package /build/out/ /

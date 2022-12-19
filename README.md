@@ -13,7 +13,8 @@ As Unifi Blueberry is not yet ready for prime time, the Podman addon can be inst
 
 ### Install
 
-1. Add the Unifi Blueberry APT repo
+1. SSH in to your console
+2. Add the Unifi Blueberry APT repo
 ```shell
 echo "deb https://repo.aptly.info/ stretch main" > /etc/apt/sources.list.d/unifi-blueberry.list
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C320FD3D3BF10DA7415B29F700CCEE392D0CA761
