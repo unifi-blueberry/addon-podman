@@ -2,7 +2,7 @@
 
 set -e
 
-export PACKAGE_NAME="unifi-blueberry-podman"
+export PACKAGE_NAME="unifi-blueberry-addon-podman"
 export VERSION="0.1.0"
 export REVISION="1"
 export ARCH="arm64"

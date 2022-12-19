@@ -22,7 +22,7 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C320FD3D3BF10DA7415B29F
 2. Install the `unifi-blueberry-addon-podman` package
 ```shell
 apt update
-apt install unifi-blueberry-podman
+apt install unifi-blueberry-addon-podman
 ```
 
 That's it! Podman is now installed. Try it out:
