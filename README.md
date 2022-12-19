@@ -32,6 +32,10 @@ That's it! Podman is now installed. Try it out:
 podman run --rm -it alpine echo Hello World!
 ```
 
+#### Package Download
+
+If you prefer to download and install without using the APT repo you can find the packages attached to the GitHub releases.
+
 ## FAQs
 
 ### Does Podman persist after reboots?
