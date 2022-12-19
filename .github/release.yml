@@ -11,7 +11,7 @@ changelog:
         - type/feature
     - title: Bug Fixes 🐞
       labels:
-        - bug
+        - type/bug
     - title: Documentation 📖
       labels:
         - type/documentation
