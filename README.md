@@ -61,4 +61,4 @@ I don't currently know exactly what this means or how we might fix it. So far it
 
 ## Credits
 
-Heavily inspired by the work done in [unifi-utlities](https://github.com/unifi-utilities/unifios). Big thanks to the maintainers there for supporting customizations fo our Unifi consoles for so long!
+Heavily inspired by the work done in [unifi-utlities](https://github.com/unifi-utilities/unifios-utilities). Big thanks to the maintainers there for supporting customizations fo our Unifi consoles for so long!
