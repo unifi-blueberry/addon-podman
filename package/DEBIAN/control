@@ -1,5 +1,5 @@
 Package: ${PACKAGE_NAME}
-Version: ${VERSION}
-Architecture: ${ARCH}
+Version: ${PACKAGE_VERSION}
+Architecture: ${PACKAGE_ARCH}
 Maintainer: Unifi Blueberry Team <info@unifiblueberry.com>
 Description: Unifi Blueberry Podman addon

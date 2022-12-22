@@ -10,22 +10,67 @@ on:
 permissions:
   contents: write
 
-env:
-  DOCKER_BUILDKIT: "1"
-
 jobs:
 
   build:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - uses: actions/github-script@v6
+        id: get-package-version
+        with:
+          script: |
+            let version = process.env.GITHUB_REF_NAME
+            version = version.replace("v", "")
+            version = version.replace("/", "-")
+            return version
+          result-encoding: string
       - name: Build Podman
-        run: docker build --target=artifact --output type=local,dest=$(pwd)/out/ .
+        env:
+          PACKAGE_VERSION: ${{ steps.get-package-version.outputs.result }}
+        run: make build
+      - name: Upload package
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: out/*.deb
+          retention-days: 7
+          if-no-files-found: error
+
+  test:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v3
+        with:
+          name: packages
+          path: out/
+      - name: Run tests
+        run: echo Add some tests!
+
+  release:
+    runs-on: self-hosted
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: test
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v3
+        with:
+          name: packages
+          path: out/
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::086975104924:role/github-actions-ci
+          aws-region: us-west-2
+      - name: Publish
+        env:
+          PGP_KEY: ${{ secrets.APT_PGP_KEY }}
+          PGP_PASS: ${{ secrets.APT_PGP_PASS }}
+        run: make publish
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           generate_release_notes: true
           files: out/*.deb
