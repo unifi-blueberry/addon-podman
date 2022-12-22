@@ -1,3 +1,5 @@
+ARG PACKAGE_VERSION
+
 ARG PODMAN_VERSION="v4.3.1"
 ARG CONMON_VERSION="v2.1.5"
 ARG RUNC_VERSION="v1.1.4"
@@ -73,6 +75,8 @@ RUN make
 ## package
 ##
 FROM debian:bullseye as package
+
+ARG PACKAGE_VERSION
 
 RUN apt-get update && apt-get install -y \
       gettext \

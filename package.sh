@@ -3,11 +3,16 @@
 set -e
 
 export PACKAGE_NAME="unifi-blueberry-addon-podman"
-export VERSION="0.1.0"
-export REVISION="1"
-export ARCH="arm64"
+export PACKAGE_VERSION="${PACKAGE_VERSION}"
+export PACKAGE_REVISION="${PACKAGE_REVISION:-1}"
+export PACKAGE_ARCH="arm64"
 
-DIR="${PACKAGE_NAME}_${VERSION}-${REVISION}_${ARCH}"
+if [ -z "$PACKAGE_VERSION" ]; then
+  echo "PACKAGE_VERSION not set"
+  exit 1
+fi
+
+DIR="${PACKAGE_NAME}_${PACKAGE_VERSION}-${PACKAGE_REVISION}_${PACKAGE_ARCH}"
 
 # create staging fir
 mkdir $DIR
