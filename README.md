@@ -18,8 +18,21 @@ _Note: this has only been tested on a UDM Pro running 2.4 so far. Please let me 
 1. SSH in to your console
 2. Add the Unifi Blueberry APT repo
 ```shell
-echo "deb https://apt.unifiblueberry.io/ stretch main" > /etc/apt/sources.list.d/unifi-blueberry.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C320FD3D3BF10DA7415B29F700CCEE392D0CA761
+# download unifi-blueberry repo key
+gpg --no-default-keyring \
+  --keyring /usr/share/keyrings/unifi-blueberry.gpg \
+  --keyserver keyserver.ubuntu.com \
+  --recv-keys C320FD3D3BF10DA7415B29F700CCEE392D0CA761
+
+# configure apt repo source
+cat <<EOT > /etc/apt/sources.list.d/unifi-blueberry.sources
+Types: deb
+Architectures: arm64
+Signed-By: /usr/share/keyrings/unifi-blueberry.gpg
+URIs: https://apt.unifiblueberry.io
+Suites: stretch
+Components: main
+EOT
 ```
 2. Install the `unifi-blueberry-addon-podman` package
 ```shell
@@ -52,7 +65,7 @@ No, due to the significant changes in Unifi OS 2.x, version OS 1.x will not be s
 
 ### There is a new version of Podman but no release here, can you update?
 
-Yes, please open a ticket and I would be happy to publish a new release. This will be automated in the future.
+Yes, please open an issue and I would be happy to publish a new release. This will be automated in the future.
 
 ### I get a warning saying "Failed to read current user namespace mappings"
 
