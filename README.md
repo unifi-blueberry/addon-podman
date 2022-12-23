@@ -1,3 +1,7 @@
+<p>
+    <img height="200px" src="logo.png">
+</p>
+
 # Unifi Blueberry - Podman
 
 An addon for Unifi Blueberry (more info coming soon!) that installs and manages [Podman](https://podman.io/).
