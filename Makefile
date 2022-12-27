@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	DOCKER_BUILDKIT=1 docker build \
+	DOCKER_BUILDKIT=1 docker build -f build/Dockerfile \
 		--build-arg PACKAGE_VERSION="${PACKAGE_VERSION}" \
 		--target=artifact \
 		--output type=local,dest=./out/ .
@@ -16,4 +16,4 @@ publish:
 		-w /work \
 		-v ${PWD}:/work \
 		debian:bullseye \
-		bash /work/publish.sh
+		bash /work/build/publish.sh

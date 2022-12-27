@@ -8,6 +8,8 @@ As Unifi Blueberry is not yet ready for prime time, the Podman addon can be inst
 
 _Note: this has only been tested on a UDM Pro running 2.4 so far. Please let me know how it goes on other consoles with Unifi OS 2.4 or greater._
 
+_Note: early versions of this addons were published with `stretch` as the APT distribution, going forward you must use `stable` to receive updates. See the instructions below for what your repo config should look like._
+
 ### Requirements
 
 * A Unifi console running Unifi OS 2.4 or later
@@ -30,7 +32,7 @@ Types: deb
 Architectures: arm64
 Signed-By: /usr/share/keyrings/unifi-blueberry.gpg
 URIs: https://apt.unifiblueberry.io
-Suites: stretch
+Suites: stable
 Components: main
 EOT
 ```
