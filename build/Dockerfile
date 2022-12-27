@@ -84,8 +84,8 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /build
 
-COPY package.sh .
-COPY package/ package/
+COPY build/package.sh .
+COPY build/packageroot packageroot/
 
 COPY --from=builder-podman /build/podman/bin/* bin/
 COPY --from=builder-conmon /build/conmon/bin/* bin/

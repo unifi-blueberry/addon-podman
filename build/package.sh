@@ -18,10 +18,10 @@ DIR="${PACKAGE_NAME}_${PACKAGE_VERSION}-${PACKAGE_REVISION}_${PACKAGE_ARCH}"
 mkdir $DIR
 
 # copy package files
-cp -r package/* $DIR/
+cp -r packageroot/* $DIR/
 
 # render control
-envsubst < package/DEBIAN/control > $DIR/DEBIAN/control
+envsubst < packageroot/DEBIAN/control > $DIR/DEBIAN/control
 
 # copy binaries
 mkdir -p $DIR/usr/bin

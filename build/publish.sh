@@ -27,20 +27,20 @@ EOT
 echo creating mirror...
 gpg --no-default-keyring --keyring trustedkeys.gpg \
   --keyserver keyserver.ubuntu.com --recv-keys C320FD3D3BF10DA7415B29F700CCEE392D0CA761
-aptly mirror create unifi-blueberry-stretch https://apt.unifiblueberry.io/ stretch
-aptly mirror update unifi-blueberry-stretch
+aptly mirror create unifi-blueberry-stable https://apt.unifiblueberry.io/ stable
+aptly mirror update unifi-blueberry-stable
 
 # create new repo
 echo creating new repo...
-aptly repo create -distribution=stretch -component=main -architectures=arm64 unifi-blueberry-stretch
+aptly repo create -distribution=stable -component=main -architectures=arm64 unifi-blueberry-stable
 
 # import mirror
 echo importing mirror...
-aptly repo import unifi-blueberry-stretch unifi-blueberry-stretch 'Name (~ .*)'
+aptly repo import unifi-blueberry-stable unifi-blueberry-stable 'Name (~ .*)'
 
 # add new package
 echo adding new package...
-aptly repo add unifi-blueberry-stretch out/*.deb
+aptly repo add unifi-blueberry-stable out/*.deb
 
 # import pgp key
 echo importing pgp key...
@@ -48,4 +48,4 @@ echo "$PGP_KEY" | base64 -d | gpg --batch --import
 
 # publish
 echo publishing...
-aptly publish repo -batch -passphrase="$PGP_PASS" -architectures=arm64 unifi-blueberry-stretch s3:apt.unifiblueberry.io:
+aptly publish repo -batch -passphrase="$PGP_PASS" -architectures=arm64 unifi-blueberry-stable s3:apt.unifiblueberry.io:
