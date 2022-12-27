@@ -8,7 +8,7 @@ As Unifi Blueberry is not yet ready for prime time, the Podman addon can be inst
 
 _Note: this has only been tested on a UDM Pro running 2.4 so far. Please let me know how it goes on other consoles with Unifi OS 2.4 or greater._
 
-_Note: early versions of this addons were published with `stretch` as the APT distribution, going forward you must use `stable` to receive updates. See the instructions below for what your repo config should look like._
+_Note: early versions of this addon were published with `stretch` as the repo's distribution, going forward you must use `stable` to receive updates. See the instructions below for what your repo config should look like._
 
 ### Requirements
 
