@@ -20,6 +20,9 @@ _Note: early versions of this addons were published with `stretch` as the APT di
 1. SSH in to your console
 2. Add the Unifi Blueberry APT repo
 ```shell
+# initialize gpg if needed, this will create the ~/.gnupg directory with the correct permissions if it does not exist
+gpg --list-keys
+
 # download unifi-blueberry repo key
 gpg --no-default-keyring \
   --keyring /usr/share/keyrings/unifi-blueberry.gpg \
