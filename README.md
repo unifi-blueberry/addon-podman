@@ -1,4 +1,9 @@
-# Unifi Blueberry - Podman
+<div align="center">
+    <img src="logo.png?raw=true" alt="Unifi Blueberry - Podman" width="128" />
+    <h1>
+    <p>Unifi Blueberry - Podman</p>
+    </h1>
+</div>
 
 An addon for Unifi Blueberry (more info coming soon!) that installs and manages [Podman](https://podman.io/).
 
@@ -12,13 +17,14 @@ _Note: early versions of this addon were published with `stretch` as the repo's 
 
 ### Requirements
 
-* A Unifi console running Unifi OS 2.4 or later
-* Shell access to your console
+- A Unifi console running Unifi OS 2.4 or later
+- Shell access to your console
 
 ### Install
 
 1. SSH in to your console
 2. Add the Unifi Blueberry APT repo
+
 ```shell
 # initialize gpg if needed, this will create the ~/.gnupg directory with the correct permissions if it does not exist
 gpg --list-keys
@@ -39,13 +45,16 @@ Suites: stable
 Components: main
 EOT
 ```
+
 2. Install the `unifi-blueberry-addon-podman` package
+
 ```shell
 apt update
 apt install unifi-blueberry-addon-podman
 ```
 
 That's it! Podman is now installed. Try it out:
+
 ```shell
 podman run --rm -it alpine echo Hello World!
 ```
@@ -75,7 +84,6 @@ Yes, please open an issue and I would be happy to publish a new release. This wi
 ### I get a warning saying "Failed to read current user namespace mappings"
 
 I don't currently know exactly what this means or how we might fix it. So far it doesn't seem to impact running containers. This issue will be investigated in the future.
-
 
 ## Credits
 
